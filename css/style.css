@@ -1,0 +1,72 @@
+/*
+Page layout
+*/
+.row {
+    display: flex;
+}
+
+.column-1 {
+    flex: 25%;
+}
+
+.column-2 {
+    flex: 75%;
+}
+
+/*
+Sorting styles
+*/
+.box {
+    display: inline-block;
+    text-align: center;
+    border: 1px solid red;
+    border-radius: 10%;
+}
+
+.box-active-red {
+    background-color: red;
+}
+
+.box-active-green {
+    background-color: green;
+    border: 1px solid green;
+}
+
+.box-text {
+    font-size: 25px;
+    padding: 10px;
+}
+
+.array-div {
+    padding: 10px;
+}
+
+/*
+Slider style
+*/
+.slider {
+    -webkit-appearance: none;
+    width: 300px;
+    height: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgb(168, 168, 168);
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgb(168, 168, 168);
+    cursor: pointer;
+}
