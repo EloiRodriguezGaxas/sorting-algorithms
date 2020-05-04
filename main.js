@@ -3,9 +3,9 @@ var _arr_length = 100;
 
 function startSorting() {
     var speed = document.getElementById("speedRange").value * 5;
-    var sorted = [...tmp];
+    //var sorted = [...tmp];
 
-    var steps = bubbleSort(sorted);
+    /* var steps = bubbleSort(sorted);
     console.log(sorted);
 
     steps.forEach((element, index) => {
@@ -14,8 +14,11 @@ function startSorting() {
         printArray([...tmp], _arr_length, (index + 1) * speed, element.first, element.second);
     });
 
-    printArray([...tmp], _arr_length, steps.length * speed, -99, -99);
+    printArray([...tmp], _arr_length, steps.length * speed, -99, -99); */
 
+    sorted = quickSort(tmp);
+    console.log(sorted);
+    
 }
 
 
