@@ -70,3 +70,8 @@ Slider style
     background: rgb(168, 168, 168);
     cursor: pointer;
 }
+
+.selector-div {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}

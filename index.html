@@ -21,6 +21,12 @@
                 <input type="range" min="1" max="200" value="100" class="slider" id="lengthRange"
                     oninput="sliderLengthChange()">
             </div>
+            <div class="selector-div">
+                <select id="algorithms">
+                    <option selected="selected" value="bubble">Bubble</option>
+                    <option value="heap">Heap</option>
+                </select>
+            </div>
             <button onclick="randomArrayGenerator(true)">Generate array</button>
             <button onclick="startSorting()">Start</button>
         </div>
@@ -34,5 +40,6 @@
 </html>
 <script src="js/helper.js"></script>
 <script src="main.js"></script>
+<script src="js/heap.js"></script>
 <script src="js/bubble.js"></script>
 <script src="js/quicksort.js"></script>

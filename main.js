@@ -1,24 +1,41 @@
+var opts = {
+    BUBBLE: 1,
+    HEAP: 2
+}
+
 var tmp = [];
 var _arr_length = 100;
 
 function startSorting() {
     var speed = document.getElementById("speedRange").value * 5;
-    //var sorted = [...tmp];
 
-    /* var steps = bubbleSort(sorted);
+    var e = document.getElementById("algorithms");
+    var algth = e.options[e.selectedIndex].value;
+
+    var sorted = [...tmp];
+
+    switch (algth) {
+        case "bubble":
+            var steps = bubbleSort(sorted);
+            break;
+        case "heap":
+            var steps = heapSort(sorted);
+            break;
+
+        default:
+            alert("You need to select an algorithm!");
+            return;
+    }
     console.log(sorted);
 
     steps.forEach((element, index) => {
-        if(element.swap)
+        if (element.swap)
             swap(element.first, element.second, tmp);
         printArray([...tmp], _arr_length, (index + 1) * speed, element.first, element.second);
     });
 
-    printArray([...tmp], _arr_length, steps.length * speed, -99, -99); */
+    printArray([...tmp], _arr_length, steps.length * speed, -99, -99);
 
-    sorted = quickSort(tmp);
-    console.log(sorted);
-    
 }
 
 
