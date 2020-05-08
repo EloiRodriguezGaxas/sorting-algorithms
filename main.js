@@ -10,28 +10,47 @@ function startSorting() {
     var speed = document.getElementById("speedRange").value * 5;
 
     var e = document.getElementById("algorithms");
-    var algth = e.options[e.selectedIndex].value;
+    var algorithm = e.options[e.selectedIndex].value;
 
     var sorted = [...tmp];
 
-    switch (algth) {
+    switch (algorithm) {
         case "bubble":
+            var t0 = performance.now()
             var steps = bubbleSort(sorted);
+            var t1 = performance.now()
             break;
         case "heap":
+            var t0 = performance.now()
             var steps = heapSort(sorted);
+            var t1 = performance.now()
             break;
-
+        case "merge":
+            var t0 = performance.now()
+            var steps = mergeSort(sorted);
+            var t1 = performance.now()
+            break;
+        case "quick":
+            var t0 = performance.now()
+            var steps = quickSort(sorted);
+            var t1 = performance.now()
+            break;
         default:
             alert("You need to select an algorithm!");
             return;
     }
+    console.log(tmp);
     console.log(sorted);
+    console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.")
 
     steps.forEach((element, index) => {
-        if (element.swap)
-            swap(element.first, element.second, tmp);
-        printArray([...tmp], _arr_length, (index + 1) * speed, element.first, element.second);
+        if (element.swap){
+            tmp.swap(element.first, element.second);
+            printArray([...tmp], _arr_length, (index + 1) * speed, element.first, element.second);
+        } else if (element.move){
+            tmp.move(element.first, element.second);
+            printArray([...tmp], _arr_length, (index + 1) * speed, element.first, element.compared);
+        }
     });
 
     printArray([...tmp], _arr_length, steps.length * speed, -99, -99);

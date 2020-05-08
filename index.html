@@ -14,8 +14,8 @@
         <div class="column-1">
             <h2>Settings</h2>
             <div class="slidecontainer">
-                <p>Speed: <span id="speed-txt">0.25</span>s</p>
-                <input type="range" min="1" max="200" value="50" class="slider" id="speedRange"
+                <p>Speed: <span id="speed-txt">0.125</span>s</p>
+                <input type="range" min="1" max="150" value="25" class="slider" id="speedRange"
                     oninput="sliderSpeedChange()">
                 <p>Array length: <span id="length-txt">100</span></p>
                 <input type="range" min="1" max="200" value="100" class="slider" id="lengthRange"
@@ -25,6 +25,8 @@
                 <select id="algorithms">
                     <option selected="selected" value="bubble">Bubble</option>
                     <option value="heap">Heap</option>
+                    <option value="merge">Merge</option>
+                    <option value="quick">Quicksort</option>
                 </select>
             </div>
             <button onclick="randomArrayGenerator(true)">Generate array</button>
@@ -40,6 +42,7 @@
 </html>
 <script src="js/helper.js"></script>
 <script src="main.js"></script>
+<script src="js/merge.js"></script>
 <script src="js/heap.js"></script>
 <script src="js/bubble.js"></script>
 <script src="js/quicksort.js"></script>
