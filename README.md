@@ -1,29 +1,9 @@
-# README #
+# Sorting Algorithms #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This project is a web-page visualizer of different types of sorting algorithms. It recreates the algorithms bubble sort, heap sort, merge sort and quicksort.
 
-### What is this repository for? ###
+The demo is accessible [here](https://eloirodriguezgaxas.github.io/sorting-algorithms/).
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+You can select the algorithm, the array size and the speed of the animation.
 
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+The algorithms are **NOT OPTIMAL!** The algorithms are prepared for illustrating how they work but they are not developed for performance, only for teaching/demonstrating matters.
