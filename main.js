@@ -6,7 +6,16 @@ var opts = {
 var tmp = [];
 var _arr_length = 100;
 
+function changeButtonsState() {
+    let btn = document.getElementById("btn-generator");
+    btn.disabled = !btn.disabled;
+
+    btn = document.getElementById("btn-start");
+    btn.disabled = !btn.disabled;
+}
+
 function startSorting() {
+    changeButtonsState();
     var speed = document.getElementById("speedRange").value * 5;
 
     var e = document.getElementById("algorithms");
@@ -39,7 +48,7 @@ function startSorting() {
             alert("You need to select an algorithm!");
             return;
     }
-    console.log(tmp);
+    
     console.log(sorted);
     console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.")
 
@@ -54,6 +63,10 @@ function startSorting() {
     });
 
     printArray([...tmp], _arr_length, steps.length * speed, -99, -99);
+
+    setTimeout(() => {
+        changeButtonsState();
+    }, steps.length * speed)
 
 }
 
