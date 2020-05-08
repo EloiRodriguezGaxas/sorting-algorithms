@@ -19,7 +19,7 @@ function heapArray(unsorted, n, i, steps) {
             second: smallest,
             swap: true
         });
-        swap(i, smallest, unsorted);
+        unsorted.swap(i, smallest);
         heapArray(unsorted, n, smallest, steps);
     } else {
         steps.push({
@@ -45,7 +45,7 @@ function heapSort(unsorted) {
             second: i,
             swap: true
         });
-        swap(0, i, unsorted);
+        unsorted.swap(0, i);
         heapArray(unsorted, i, 0, steps);
     }
     return steps;

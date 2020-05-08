@@ -1,47 +1,83 @@
-
-function __quickSort(unsorted) {
-    _quicksort(unsorted, 0, unsorted.length - 1);
-    console.log(sortedArray);
-}
-
-function _quicksort(unsorted, low, high) {
-    if (low < high) {
-        const partitionIdx = partition(unsorted, low, high);
-        _quicksort(unsorted, low, partitionIdx - 1);
-        _quicksort(unsorted, partitionIdx, high);
+function quickSort(unsorted, low, high, steps) {
+    if (low == undefined || high == undefined) {
+        low = 0;
+        high = unsorted.length - 1;
+        steps = [];
     }
-    //return unsorted;
+    if (unsorted.length > 1) {
+
+        const partitionIdx = partition(unsorted, low, high, steps);
+
+        if (low < partitionIdx - 1)
+            quickSort(unsorted, low, partitionIdx - 1, steps);
+
+        if (high > partitionIdx)
+            quickSort(unsorted, partitionIdx + 1, high, steps);
+
+    }
+
+    return steps;
 }
 
-function partition(unsorted, low, high) {
+
+
+function partition(unsorted, low, high, steps) {
     var pivot = unsorted[high];
-    var i = low;
-    for (let j = low; j < high - 1; j++) {
-        if (unsorted[j] >= pivot) {
-            swap(i, j, unsorted);
+    var i = 0;
+    var j = 0;
+    var positions = [];
+    for (let k = low; k < high; k++) {
+        if (unsorted[k] < pivot) {
+            if (k != i + low) {
+                positions.push({
+                    old: k,
+                    new: i + low
+                });
+                steps.push({
+                    first: k,
+                    second: i + low,
+                    move: true,
+                    compared: high
+                });
+            }
             i++;
+        } else {
+            if (k != j + i + low) {
+                positions.push({
+                    old: k,
+                    new: j + i + low
+                });
+                steps.push({
+                    first: k,
+                    second: j + i + low,
+                    move: true,
+                    compared: high
+                });
+            }
+            j++;
         }
     }
+    if (high != i + low) {
+        positions.push({
+            old: high,
+            new: i + low
+        });
+        steps.push({
+            first: high,
+            second: i + low,
+            move: true,
+            compared: high
+        });
+    }
+    updatePositions(unsorted, positions);
 
-    swap(i + 1, high, unsorted);
-
-    return i;
+    return i + low;
 
 }
 
-function quickSort(array) {
-    if (array.length <= 1) {
-      return array;
+function updatePositions(unsorted, positions) {
+    for (let i = 0; i < positions.length; i++) {
+        const element = positions[i];
+        unsorted.move(element.old, element.new);
     }
-  
-    var pivot = array[0];
-    
-    var left = []; 
-    var right = [];
-  
-    for (var i = 1; i < array.length; i++) {
-      array[i] < pivot ? left.push(array[i]) : right.push(array[i]);
-    }
-  
-    return quickSort(left).concat(pivot, quickSort(right));
-  };
+}

@@ -11,7 +11,7 @@ function bubbleSort(unsorted) {
                     second: j + 1,
                     swap: true
                 });
-                swap(j, j + 1, unsorted);
+                unsorted.swap(j, j + 1);
                 swapped = true;
             } else {
                 steps.push({
